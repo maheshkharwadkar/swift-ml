@@ -1,0 +1,53 @@
+<div fxLayoutAlign="center center" fxLayout="column">
+    <h1>Iris Model - Example</h1>
+
+    <div class="home__prediction"
+         fxLayoutAlign="center center"
+         fxLayout="column">
+        <h3>Predict Iris classes</h3>
+
+        <md-card fxLayoutAlign="center center" fxLayout="column">
+            <h4>Define Iris</h4>
+            <div fxLayout="row">
+                <md-input-container>
+                    <input mdInput
+                           name="Sepal width"
+                           placeholder="Sepal width"
+                           [(ngModel)]="iris.sepal_width">
+                </md-input-container>
+                <md-input-container>
+                    <input mdInput
+                           name="Sepal length"
+                           placeholder="Sepal length"
+                           [(ngModel)]="iris.sepal_length">
+                </md-input-container>
+            </div>
+            <div fxLayout="row">
+                <md-input-container>
+                    <input mdInput
+                           name="Petal width"
+                           placeholder="Petal width"
+                           [(ngModel)]="iris.petal_width">
+                </md-input-container>
+                <md-input-container>
+                    <input mdInput
+                           name="Petal length"
+                           placeholder="Petal length"
+                           [(ngModel)]="iris.petal_length">
+                </md-input-container>
+            </div>
+            <div>
+                <button md-raised-button (click)="predictIris()">Predict iris</button>
+            </div>
+        </md-card>
+
+        <div [hidden]="!result"
+             fxLayoutAlign="center center"
+             fxLayout="column"
+             >
+            <h4>Prediction Result</h4>
+            <h3> {{result}}</h3>
+
+        </div>
+    </div>
+</div>

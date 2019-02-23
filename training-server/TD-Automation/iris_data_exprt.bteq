@@ -1,0 +1,16 @@
+bteq << EOF > iris_export_exprt.log
+.logon 10.52.0.214/dbc,TDUPAASCICD598;
+
+.export report file=iris_data_export.csv;
+.set width 200
+
+select
+sepal_length || ',' || sepal_width ||',' || petal_length || ',' || petal_width  || ',' || species (VARCHAR(200))(title '')
+from iris_db.IRIS
+union all
+select 'sepal_length' || ',' || 'sepal_width' ||',' || 'petal_length' || ',' || 'petal_width' || ',' || 'species' (VARCHAR(200))(title '') from dbc.tables where tablename='IRIS' ;
+
+.export reset
+.exit
+
+EOF
