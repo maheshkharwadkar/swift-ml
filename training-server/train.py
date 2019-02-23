@@ -33,10 +33,10 @@ def upload_to_bucket(bucketname):
 
 
 def tptexecution():
-  ssh_connect('10.52.8.170')
+  ssh_connect('1.1.1.1')
 
 def load_datafrom_td():
-  user, pasw, host = 'dbc','TDUPAASCICD598', '10.52.0.214'
+  user, pasw, host = 'dbc','TD', '1.1.1.1'
   td_engine = create_engine('teradatasql://{}:{}@{}'.format(user,pasw,host))
   query = 'select * from iris_db.IRIS'
   result = td_engine.execute(query)
